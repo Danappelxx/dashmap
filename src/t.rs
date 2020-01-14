@@ -5,8 +5,8 @@ use crate::mapref::entry::Entry;
 use crate::mapref::one::{Ref, RefMut};
 use crate::HashMap;
 use parking_lot::{RwLockReadGuard, RwLockWriteGuard};
-use std::borrow::Borrow;
-use std::hash::Hash;
+use core::borrow::Borrow;
+use core::hash::Hash;
 
 pub trait Map<'a, K: 'a + Eq + Hash, V: 'a> {
     fn _shard_count(&self) -> usize;

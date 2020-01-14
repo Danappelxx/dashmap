@@ -1,8 +1,8 @@
 use crate::HashMap;
 use parking_lot::{RwLockReadGuard, RwLockWriteGuard};
-use std::hash::Hash;
-use std::ops::{Deref, DerefMut};
-use std::sync::Arc;
+use core::hash::Hash;
+use core::ops::{Deref, DerefMut};
+use alloc::sync::Arc;
 
 // -- Shared
 

@@ -1,7 +1,7 @@
 //! This module is full of hackery and dark magic.
 //! Either spend a day fixing it and quietly submit a PR or don't mention it to anybody.
 
-use std::{mem, ptr};
+use core::{mem, ptr};
 
 #[inline(always)]
 pub const fn ptr_size_bits() -> usize {

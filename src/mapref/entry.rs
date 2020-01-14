@@ -2,9 +2,9 @@ use super::one::RefMut;
 use crate::util;
 use crate::HashMap;
 use parking_lot::RwLockWriteGuard;
-use std::hash::Hash;
-use std::mem;
-use std::ptr;
+use core::hash::Hash;
+use core::mem;
+use core::ptr;
 
 pub enum Entry<'a, K: Eq + Hash, V> {
     Occupied(OccupiedEntry<'a, K, V>),

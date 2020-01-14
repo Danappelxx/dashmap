@@ -1,4 +1,6 @@
 #![allow(clippy::type_complexity)]
+#![no_std]
+extern crate alloc;
 
 pub mod iter;
 pub mod mapref;
@@ -13,13 +15,15 @@ use iter::{Iter, IterMut};
 use mapref::entry::{Entry, OccupiedEntry, VacantEntry};
 use mapref::one::{Ref, RefMut};
 use parking_lot::{RwLock, RwLockReadGuard, RwLockWriteGuard};
-use std::borrow::Borrow;
-use std::hash::Hash;
-use std::iter::FromIterator;
-use std::ops::{BitAnd, BitOr, Shl, Shr, Sub};
+use core::borrow::Borrow;
+use core::hash::Hash;
+use core::iter::FromIterator;
+use core::ops::{BitAnd, BitOr, Shl, Shr, Sub};
+use alloc::boxed::Box;
+use alloc::vec::Vec;
 use t::Map;
 
-type HashMap<K, V> = std::collections::HashMap<K, V, FxBuildHasher>;
+type HashMap<K, V> = hashbrown::HashMap<K, V, FxBuildHasher>;
 
 fn shard_amount() -> usize {
     (num_cpus::get() * 4).next_power_of_two()

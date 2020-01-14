@@ -3,9 +3,9 @@ use super::util;
 use crate::t::Map;
 use crate::HashMap;
 use parking_lot::{RwLockReadGuard, RwLockWriteGuard};
-use std::collections::hash_map;
-use std::hash::Hash;
-use std::sync::Arc;
+use hashbrown::hash_map;
+use core::hash::Hash;
+use alloc::sync::Arc;
 
 type GuardIter<'a, K, V> = (
     Arc<RwLockReadGuard<'a, HashMap<K, V>>>,
